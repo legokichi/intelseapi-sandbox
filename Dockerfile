@@ -35,24 +35,6 @@ RUN apt-get install -y --no-install-recommends \
 RUN update-alternatives --install /usr/bin/gcc gcc /usr/bin/gcc-6 20
 RUN update-alternatives --install /usr/bin/g++ g++ /usr/bin/g++-6 20
 
-
-RUN add-apt-repository ppa:webupd8team/java
-RUN apt-get update
-
-RUN apt-get install -y default-jre
-RUN dpkg-reconfigure debconf
-RUN echo debconf shared/accepted-oracle-license-v1-1 select true | \
-    debconf-set-selections
-RUN echo debconf shared/accepted-oracle-license-v1-1 seen true | \
-    debconf-set-selections
-
-RUN apt-get install -y oracle-java8-installer
-RUN apt-get install -y oracle-java8-set-default
-RUN apt-get install -y maven
-ENV JAVA_HOME=/usr/lib/jvm/java-8-oracle
-
-#RUN apt-get install -y libc6-dev-i386 gcc-multilib g++-multilib
-
 WORKDIR /opt
 RUN git clone https://github.com/intel/IntelSEAPI.git
 WORKDIR /opt/IntelSEAPI
@@ -60,6 +42,5 @@ RUN python ./buildall.py --force_bits=64 --no_java --verbose --clean --install
 
 ENV LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/opt/IntelSEAPI/bin/
 RUN ldconfig
-
 
 WORKDIR /opt/
