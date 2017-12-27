@@ -1,7 +1,9 @@
 # IntelSEAPI demo
 
 * https://github.com/intel/IntelSEAPI/wiki/Getting-started
-* chrome://tracing/
+* https://www.gamasutra.com/view/news/176420/Indepth_Using_Chrometracing_to_view_your_inline_profiling_data.php
+* https://src.chromium.org/viewvc/chrome/trunk/src/base/debug/trace_event.h?view=markup
+* http://www.chromium.org/developers/how-tos/trace-event-profiling-tool/tracing-event-instrumentation
 
 
 ## build
