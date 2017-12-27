@@ -56,7 +56,7 @@ ENV JAVA_HOME=/usr/lib/jvm/java-8-oracle
 WORKDIR /opt
 RUN git clone https://github.com/intel/IntelSEAPI.git
 WORKDIR /opt/IntelSEAPI
-RUN python ./buildall.py --install --force_bits=64 --no_java
+RUN python ./buildall.py --force_bits=64 --no_java --verbose --clean --install
 
 ENV LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/opt/IntelSEAPI/bin/
 RUN ldconfig
